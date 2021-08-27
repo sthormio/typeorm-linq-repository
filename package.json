@@ -11,7 +11,8 @@
     "test": "jasmine-ts \"./tsconfig.spec.json\" --config=\"./test/jasmine.json\"",
     "tsc": "node_modules/.bin/tsc -d --project \"./tsconfig.build.json\"",
     "tslint": "node_modules/.bin/tslint --project .",
-    "typeorm:registered": "ts-node ./node_modules/typeorm/cli.js"
+    "typeorm:registered": "ts-node ./node_modules/typeorm/cli.js",
+    "prepare": "node_modules/.bin/tsc -d --project \"./tsconfig.build.json\""
   },
   "repository": {
     "type": "git",
