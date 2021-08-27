@@ -385,6 +385,14 @@ export class Query<T extends EntityBase, R extends T | T[], P = T>
         );
     }
 
+    public orderByExpression(expression: string, options?: QueryOrderOptions): IQuery<T, R, P> {
+        return this.completeOrderBy(
+            this._query.orderBy,
+            [expression],
+            options
+        );
+    }
+
     // TODO: Can we use something besides the VERY unfortunate "any" here?
     // With return type "IQuery<T, R, T> | IComparableQuery<T, R, S>",
     // TS is complaining about IComparableQuery not having a whole bunch of methods
@@ -697,7 +705,7 @@ export class Query<T extends EntityBase, R extends T | T[], P = T>
 
     private completeOrderBy(
         orderAction: (...params: any[]) => SelectQueryBuilder<T>,
-        orderParams: [string, "ASC" | "DESC"],
+        orderParams: [string, "ASC" | "DESC"] | [string],
         options?: QueryOrderOptions
     ): IQuery<T, R, P> {
         if (options) {

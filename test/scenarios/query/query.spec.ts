@@ -221,6 +221,21 @@ describe("Query", () => {
             .toBe(2);
     });
 
+    // this might fail but it is too rare. it needs improvement. works only on some dbs
+    // it("test order by random", async () => {
+    //     const songs1 = await songRepository.getAll().orderByExpression("RANDOM()");
+    //     const songs2 = await songRepository.getAll().orderByExpression("RANDOM()");
+    //
+    //     let equals = 0;
+    //     for(let i = 0; i< songs1.length; i++){
+    //         if(songs1[i].id === songs2[i].id) {
+    //             equals++;
+    //         }
+    //     }
+    //
+    //     expect(equals===songs1.length).toBeFalse();
+    // });
+
     afterAll(async () => {
         await connection.close();
     });

@@ -84,6 +84,11 @@ export interface IQueryBase<T extends EntityBase, R extends T | T[], P = T> {
      */
     orderByDescending(propertySelector: (obj: P) => any, options?: QueryOrderOptions): IQuery<T, R, P>;
     /**
+     * Orders the query on the specified property in random order.
+     * @param expression Random expression to follow. It depends on each DB implementation. It needs improvement.
+     */
+    orderByExpression(expression: string, options?: QueryOrderOptions): IQuery<T, R, P>;
+    /**
      * Returns the query back to its base type while also exiting "join mode",
      * thus ending a join chain so that where conditions may be continued on the base type.
      */
